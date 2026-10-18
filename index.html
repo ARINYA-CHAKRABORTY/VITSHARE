@@ -841,10 +841,7 @@
                 <!-- 1. Compression Slider (Left -> Right increases compression) -->
                 <div id="comp-slider-container" class="space-y-2 pt-1 transition-opacity">
                     <div class="flex justify-between items-center text-xs">
-                        <span class="font-bold text-stone-800 flex items-center space-x-1.5">
-                            <i data-lucide="sliders" class="w-3.5 h-3.5 text-cyan-500"></i>
-                            <span>Compression Level</span>
-                        </span>
+                        <span class="font-bold text-stone-800">Compression Level</span>
                         <span id="comp-quality-val"
                             class="font-bold text-xs px-2 py-0.5 rounded-md bg-cyan-50 text-cyan-700">50%</span>
                     </div>
@@ -889,25 +886,21 @@
                 </div>
 
                 <!-- 3. Format Toggle (WebP / JPEG / PNG) -->
-                <div class="space-y-1.5 pt-2 border-t border-stone-100">
+                <div class="space-y-2 pt-2 border-t border-stone-100">
                     <div class="flex items-center justify-between text-xs">
                         <span class="font-bold text-stone-800">Format</span>
                         <div class="inline-flex rounded-lg border border-stone-200 bg-stone-100 p-0.5 text-xs">
                             <button id="fmt-webp" type="button" onclick="setOutputFormat('image/webp')"
-                                class="px-2.5 py-1 rounded-md font-bold bg-white text-cyan-700 shadow-xs cursor-pointer">WebP
-                                (Smallest)</button>
+                                class="px-3 py-1 rounded-md font-bold bg-white text-cyan-700 shadow-xs cursor-pointer text-xs transition-all">WebP</button>
                             <button id="fmt-jpeg" type="button" onclick="setOutputFormat('image/jpeg')"
-                                class="px-2.5 py-1 rounded-md font-medium text-stone-600 hover:text-stone-900 cursor-pointer">JPEG</button>
+                                class="px-3 py-1 rounded-md font-medium text-stone-600 hover:text-stone-900 cursor-pointer text-xs transition-all">JPEG</button>
                             <button id="fmt-png" type="button" onclick="setOutputFormat('image/png')"
-                                class="px-2.5 py-1 rounded-md font-medium text-stone-600 hover:text-stone-900 cursor-pointer">PNG
-                                (Lossless)</button>
+                                class="px-3 py-1 rounded-md font-medium text-stone-600 hover:text-stone-900 cursor-pointer text-xs transition-all">PNG</button>
                         </div>
                     </div>
                     <p id="png-quality-hint"
-                        class="text-[10px] text-amber-700 bg-amber-50 border border-amber-200/80 rounded-lg p-1.5 hidden">
-                        💡 <strong>Note:</strong> PNG is a lossless format (standard browsers ignore quality compression
-                        for PNG). The slider is disabled. Choose <strong>WebP</strong> or <strong>JPEG</strong> to
-                        compress file size with the slider.
+                        class="text-[11px] text-red-700 bg-red-50 border border-red-200 rounded-xl p-2.5 hidden leading-relaxed">
+                        <strong class="font-bold text-red-800">Note:</strong> PNG is a lossless format (standard browsers ignore quality compression for PNG). The slider is disabled. Choose <strong class="underline">WebP</strong> or <strong class="underline">JPEG</strong> to compress file size with the slider.
                     </p>
                 </div>
 
@@ -4600,9 +4593,9 @@
                 const btn = document.getElementById(`fmt-${fmt}`);
                 if (btn) {
                     if (format === `image/${fmt}`) {
-                        btn.className = "px-2.5 py-1 rounded-md font-bold bg-white text-cyan-700 shadow-xs cursor-pointer";
+                        btn.className = "px-3 py-1 rounded-md font-bold bg-white text-cyan-700 shadow-xs cursor-pointer text-xs transition-all";
                     } else {
-                        btn.className = "px-2.5 py-1 rounded-md font-medium text-stone-600 hover:text-stone-900 cursor-pointer";
+                        btn.className = "px-3 py-1 rounded-md font-medium text-stone-600 hover:text-stone-900 cursor-pointer text-xs transition-all";
                     }
                 }
             });

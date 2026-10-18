@@ -117,10 +117,10 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            height: 42px;
+            height: 38px;
             max-height: 42px;
             box-sizing: border-box;
-            padding: 0 0.85rem;
+            padding: 0 0.65rem;
             border-radius: 1rem;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.82) 50%, rgba(255, 255, 255, 0.92) 100%);
             backdrop-filter: blur(20px) saturate(180%);
@@ -134,6 +134,13 @@
             user-select: none;
             overflow: visible;
             transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        @media (min-width: 640px) {
+            .start-btn {
+                height: 42px;
+                padding: 0 0.85rem;
+            }
         }
 
         .start-btn:hover {
@@ -279,138 +286,143 @@
 <body class="min-h-screen flex flex-col justify-between text-stone-900 selection:bg-blue-200 selection:text-blue-900">
 
         <!-- Sticky Top Navigation Bar with Soft Gradient Scrim -->
-    <header class="sticky top-0 z-40 w-full bg-gradient-to-b from-[#ECFEFF]/95 via-[#ECFEFF]/80 to-transparent px-3.5 sm:px-6 lg:px-8 py-3 transition-all">
-        <div class="w-full flex flex-wrap md:flex-nowrap items-center justify-between gap-y-2.5 md:gap-y-0 relative">
-            <!-- Left Zone: Revived Joined Liquid Glass Pill (Brand + Connect + Websites) -->
-            <div class="fx-layer order-1 flex items-center">
-                <div class="top">
-                    <div class="box start-btn select-none" draggable="false" ondragstart="return false;">
-                        <div class="circle-overlay"></div>
+    <header class="sticky top-0 z-40 w-full bg-gradient-to-b from-[#ECFEFF]/95 via-[#ECFEFF]/80 to-transparent px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 transition-all">
+        <div class="w-full flex flex-col md:flex-row md:items-center md:justify-between gap-y-2 md:gap-y-0 relative">
+            
+            <!-- Top Bar Row: Brand on Left, Actions on Right (Always Side-by-Side!) -->
+            <div class="w-full flex items-center justify-between z-10">
+                <!-- Left Zone: Revived Joined Liquid Glass Pill (Brand + Connect + Websites) -->
+                <div class="fx-layer flex items-center flex-shrink-0">
+                    <div class="top">
+                        <div class="box start-btn select-none" draggable="false" ondragstart="return false;">
+                            <div class="circle-overlay"></div>
 
-                        <!-- Clickable Brand Section -->
-                        <div class="flex items-center cursor-pointer z-10 group/brand select-none" draggable="false" ondragstart="return false;"
-                            onclick="switchFeatureMode('share'); switchTab('upload');">
-                            <img src="icon-192.png" alt="VitShare Logo" draggable="false" ondragstart="return false;"
-                                class="w-7 h-7 sm:w-8 sm:h-8 object-contain mr-2 sm:mr-2.5 flex-shrink-0 transition-transform group-hover/brand:scale-105 pointer-events-none select-none">
-                            <span class="text font-black text-lg sm:text-2xl tracking-tight leading-none"><span
-                                    class="text-cyan-500">VIT</span><span class="text-stone-900">SHARE</span></span>
-                        </div>
-
-                        <!-- Dropdown Tiles (Connect & Websites) inside the glassy pill -->
-                        <div class="hidden lg:flex items-center space-x-1 ml-2 z-20">
-                            <!-- Socials Dropdown Tile -->
-                            <div class="relative group">
-                                <button type="button"
-                                    class="flex items-center space-x-1.5 px-2.5 py-1 rounded-lg hover:bg-stone-100/80 text-xs font-bold text-slate-700 hover:text-slate-900 transition-colors cursor-pointer">
-                                    <i data-lucide="user" class="w-3.5 h-3.5 text-cyan-500"></i>
-                                    <span>Connect</span>
-                                    <i data-lucide="chevron-down" class="w-3 h-3 text-slate-400"></i>
-                                </button>
-                                <div
-                                    class="absolute left-0 top-full mt-2 w-48 bg-white border border-slate-200 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 p-1.5 space-y-0.5">
-                                    <a href="https://www.linkedin.com/in/arinya-chakraborty-90349438a" target="_blank"
-                                        class="flex items-center space-x-2 p-2 hover:bg-slate-50 rounded-lg text-[11px] font-semibold text-slate-700 hover:text-slate-950 transition-colors">
-                                        <i data-lucide="linkedin" class="w-3.5 h-3.5 text-cyan-500"></i>
-                                        <span>LinkedIn Profile</span>
-                                    </a>
-                                    <a href="https://www.instagram.com/arinyachakraborty" target="_blank"
-                                        class="flex items-center space-x-2 p-2 hover:bg-slate-50 rounded-lg text-[11px] font-semibold text-slate-700 hover:text-slate-950 transition-colors">
-                                        <i data-lucide="instagram" class="w-3.5 h-3.5 text-pink-600"></i>
-                                        <span>Instagram</span>
-                                    </a>
-                                </div>
+                            <!-- Clickable Brand Section -->
+                            <div class="flex items-center cursor-pointer z-10 group/brand select-none" draggable="false" ondragstart="return false;"
+                                onclick="switchFeatureMode('share'); switchTab('upload');">
+                                <img src="icon-192.png" alt="VitShare Logo" draggable="false" ondragstart="return false;"
+                                    class="w-6 h-6 sm:w-8 sm:h-8 object-contain mr-1.5 sm:mr-2.5 flex-shrink-0 transition-transform group-hover/brand:scale-105 pointer-events-none select-none">
+                                <span class="text font-black text-base sm:text-2xl tracking-tight leading-none"><span
+                                        class="text-cyan-500">VIT</span><span class="text-stone-900">SHARE</span></span>
                             </div>
 
-                            <!-- Websites Dropdown Tile -->
-                            <div class="relative group">
-                                <button type="button"
-                                    class="flex items-center space-x-1.5 px-2.5 py-1 rounded-lg hover:bg-stone-100/80 text-xs font-bold text-slate-700 hover:text-slate-900 transition-colors cursor-pointer">
-                                    <i data-lucide="globe" class="w-3.5 h-3.5 text-cyan-500"></i>
-                                    <span>Websites</span>
-                                    <i data-lucide="chevron-down" class="w-3 h-3 text-slate-400"></i>
-                                </button>
-                                <div
-                                    class="absolute left-0 top-full mt-2 w-52 bg-white border border-slate-200 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 p-1.5 space-y-0.5">
-                                    <a href="https://gaytm-by-arinya.netlify.app" target="_blank"
-                                        class="flex items-center space-x-2 p-2 hover:bg-slate-50 rounded-lg text-[11px] font-semibold text-slate-700 hover:text-slate-950 transition-colors">
-                                        <i data-lucide="wallet" class="w-3.5 h-3.5 text-emerald-600"></i>
-                                        <span>saytm</span>
-                                    </a>
-                                    <a href="https://appuonda.netlify.app" target="_blank"
-                                        class="flex items-center space-x-2 p-2 hover:bg-slate-50 rounded-lg text-[11px] font-semibold text-slate-700 hover:text-slate-950 transition-colors">
-                                        <i data-lucide="cpu" class="w-3.5 h-3.5 text-cyan-500"></i>
-                                        <span>Appuonda Project</span>
-                                    </a>
+                            <!-- Dropdown Tiles (Connect & Websites) inside the glassy pill -->
+                            <div class="hidden lg:flex items-center space-x-1 ml-2 z-20">
+                                <!-- Socials Dropdown Tile -->
+                                <div class="relative group">
+                                    <button type="button"
+                                        class="flex items-center space-x-1.5 px-2.5 py-1 rounded-lg hover:bg-stone-100/80 text-xs font-bold text-slate-700 hover:text-slate-900 transition-colors cursor-pointer">
+                                        <i data-lucide="user" class="w-3.5 h-3.5 text-cyan-500"></i>
+                                        <span>Connect</span>
+                                        <i data-lucide="chevron-down" class="w-3 h-3 text-slate-400"></i>
+                                    </button>
+                                    <div
+                                        class="absolute left-0 top-full mt-2 w-48 bg-white border border-slate-200 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 p-1.5 space-y-0.5">
+                                        <a href="https://www.linkedin.com/in/arinya-chakraborty-90349438a" target="_blank"
+                                            class="flex items-center space-x-2 p-2 hover:bg-slate-50 rounded-lg text-[11px] font-semibold text-slate-700 hover:text-slate-950 transition-colors">
+                                            <i data-lucide="linkedin" class="w-3.5 h-3.5 text-cyan-500"></i>
+                                            <span>LinkedIn Profile</span>
+                                        </a>
+                                        <a href="https://www.instagram.com/arinyachakraborty" target="_blank"
+                                            class="flex items-center space-x-2 p-2 hover:bg-slate-50 rounded-lg text-[11px] font-semibold text-slate-700 hover:text-slate-950 transition-colors">
+                                            <i data-lucide="instagram" class="w-3.5 h-3.5 text-pink-600"></i>
+                                            <span>Instagram</span>
+                                        </a>
+                                    </div>
                                 </div>
+
+                                <!-- Websites Dropdown Tile -->
+                                <div class="relative group">
+                                    <button type="button"
+                                        class="flex items-center space-x-1.5 px-2.5 py-1 rounded-lg hover:bg-stone-100/80 text-xs font-bold text-slate-700 hover:text-slate-900 transition-colors cursor-pointer">
+                                        <i data-lucide="globe" class="w-3.5 h-3.5 text-cyan-500"></i>
+                                        <span>Websites</span>
+                                        <i data-lucide="chevron-down" class="w-3 h-3 text-slate-400"></i>
+                                    </button>
+                                    <div
+                                        class="absolute left-0 top-full mt-2 w-52 bg-white border border-slate-200 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 p-1.5 space-y-0.5">
+                                        <a href="https://gaytm-by-arinya.netlify.app" target="_blank"
+                                            class="flex items-center space-x-2 p-2 hover:bg-slate-50 rounded-lg text-[11px] font-semibold text-slate-700 hover:text-slate-950 transition-colors">
+                                            <i data-lucide="wallet" class="w-3.5 h-3.5 text-emerald-600"></i>
+                                            <span>saytm</span>
+                                        </a>
+                                        <a href="https://appuonda.netlify.app" target="_blank"
+                                            class="flex items-center space-x-2 p-2 hover:bg-slate-50 rounded-lg text-[11px] font-semibold text-slate-700 hover:text-slate-950 transition-colors">
+                                            <i data-lucide="cpu" class="w-3.5 h-3.5 text-cyan-500"></i>
+                                            <span>Appuonda Project</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Zone: Install (solid cyan) & History (ghost button with icon) (Always side-by-side on top row!) -->
+                <div class="flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0">
+                    <!-- PWA Install Button (solid cyan-500) -->
+                    <button id="pwa-install-btn" onclick="installPWA()"
+                        class="h-[38px] sm:h-[44px] px-2.5 sm:px-4 rounded-full bg-cyan-500 hover:bg-cyan-600 text-white font-bold text-xs flex items-center space-x-1 sm:space-x-1.5 transition-all border-1.5 border-cyan-400 shadow-sm shadow-cyan-500/15 cursor-pointer focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:outline-none hidden">
+                        <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                        <span>Install</span>
+                    </button>
+
+                    <!-- History Ghost Button -->
+                    <div id="history-wrapper" class="relative">
+                        <button id="history-toggle-btn" onclick="toggleHistoryPopover(event)"
+                            class="h-[38px] sm:h-[44px] px-2.5 sm:px-4 rounded-full bg-white/95 hover:bg-white text-slate-700 hover:text-slate-900 border-1.5 border-cyan-400 backdrop-blur-xl shadow-sm shadow-cyan-500/10 text-xs font-bold flex items-center space-x-1 sm:space-x-1.5 transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:outline-none">
+                            <i data-lucide="history" class="w-3.5 h-3.5 text-cyan-500"></i>
+                            <span>History</span>
+                            <span id="history-badge"
+                                class="px-1.5 py-0.2 text-[10px] font-black rounded-full bg-cyan-100 text-cyan-800 hidden">0</span>
+                        </button>
+
+                        <!-- History Popover -->
+                        <div id="history-popover"
+                            class="absolute top-12 sm:top-14 right-0 w-[calc(100vw-2rem)] max-w-xs sm:w-88 bg-white/95 backdrop-blur-xl border border-stone-200/80 text-stone-900 rounded-2xl shadow-2xl p-4 sm:p-5 z-50 transition-all duration-200 ease-out origin-top-right transform opacity-0 scale-95 pointer-events-none">
+                            <div class="flex items-center justify-between pb-3 border-b border-stone-100 mb-3">
+                                <h4 class="text-xs font-extrabold text-stone-900 tracking-tight">Recent Transfers</h4>
+                                <button onclick="closeHistoryPopover()"
+                                    class="text-stone-400 hover:text-stone-700 p-1 rounded-md transition-colors">
+                                    <i data-lucide="x" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+
+                            <div id="history-items-container" class="space-y-2.5 max-h-64 overflow-y-auto pr-1">
+                                <!-- Dynamic history list rendered here -->
+                            </div>
+
+                            <div
+                                class="pt-3 mt-3 border-t border-stone-100 flex justify-between items-center text-[11px] px-0.5">
+                                <button onclick="clearHistory()"
+                                    class="text-red-500 hover:text-red-600 font-semibold transition-colors">Clear
+                                    History</button>
+                                <span class="text-stone-400">Auto-deletes in 10m</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Center Zone: Mode Switcher Toggle (h-[44px], radius 999px, 4px padding, active cyan #06b6d4, 200ms) -->
-            <div class="w-full md:w-auto order-3 md:order-2 flex justify-center md:absolute md:left-1/2 md:-translate-x-1/2 md:top-1/2 md:-translate-y-1/2 z-20">
+            <!-- Mode Switcher Toggle: Centered on desktop, centered directly underneath on mobile -->
+            <div class="w-full md:w-auto flex justify-center md:absolute md:left-1/2 md:-translate-x-1/2 md:top-1/2 md:-translate-y-1/2 z-20 pointer-events-auto">
                 <div id="mode-switcher-container"
-                    class="relative flex items-center h-[44px] p-1 rounded-full bg-white/95 backdrop-blur-xl border-1.5 border-cyan-400 shadow-sm shadow-cyan-500/10 select-none">
+                    class="relative flex items-center h-[40px] sm:h-[44px] p-1 rounded-full bg-white/95 backdrop-blur-xl border-1.5 border-cyan-400 shadow-sm shadow-cyan-500/10 select-none">
                     <!-- Smooth Animated Sliding Pill -->
                     <div id="mode-slider-pill"
                         class="absolute rounded-full bg-cyan-500 pointer-events-none transition-all duration-200 ease-out shadow-xs">
                     </div>
                     <button id="mode-share-btn" onclick="switchFeatureMode('share')"
-                        class="relative z-10 px-4 py-1.5 h-full rounded-full text-xs font-bold transition-colors duration-200 flex items-center justify-center text-white cursor-pointer focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:outline-none">
+                        class="relative z-10 px-3.5 sm:px-4 py-1.5 h-full rounded-full text-xs font-bold transition-colors duration-200 flex items-center justify-center text-white cursor-pointer focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:outline-none">
                         <span>Share Files</span>
                     </button>
                     <button id="mode-compress-btn" onclick="switchFeatureMode('compress')"
-                        class="relative z-10 px-4 py-1.5 h-full rounded-full text-xs font-semibold transition-colors duration-200 flex items-center justify-center text-slate-600 hover:text-slate-900 cursor-pointer focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:outline-none">
+                        class="relative z-10 px-3.5 sm:px-4 py-1.5 h-full rounded-full text-xs font-semibold transition-colors duration-200 flex items-center justify-center text-slate-600 hover:text-slate-900 cursor-pointer focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:outline-none">
                         <span>Compress Files</span>
                     </button>
                 </div>
             </div>
 
-            <!-- Right Zone: Install (solid cyan) & History (ghost button with icon) (h-[44px], rounded-full) -->
-            <div class="flex items-center space-x-2 order-2 md:order-3">
-                <!-- PWA Install Button (solid cyan-500) -->
-                <button id="pwa-install-btn" onclick="installPWA()"
-                    class="h-[44px] px-4 rounded-full bg-cyan-500 hover:bg-cyan-600 text-white font-bold text-xs flex items-center space-x-1.5 transition-all border-1.5 border-cyan-400 shadow-sm shadow-cyan-500/15 cursor-pointer focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:outline-none hidden">
-                    <i data-lucide="download" class="w-3.5 h-3.5"></i>
-                    <span>Install</span>
-                </button>
-
-                <!-- History Ghost Button -->
-                <div id="history-wrapper" class="relative">
-                    <button id="history-toggle-btn" onclick="toggleHistoryPopover(event)"
-                        class="h-[44px] px-4 rounded-full bg-white/95 hover:bg-white text-slate-700 hover:text-slate-900 border-1.5 border-cyan-400 backdrop-blur-xl shadow-sm shadow-cyan-500/10 text-xs font-bold flex items-center space-x-1.5 transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:outline-none">
-                        <i data-lucide="history" class="w-3.5 h-3.5 text-cyan-500"></i>
-                        <span>History</span>
-                        <span id="history-badge"
-                            class="px-1.5 py-0.2 text-[10px] font-black rounded-full bg-cyan-100 text-cyan-800 hidden">0</span>
-                    </button>
-
-                    <!-- History Popover -->
-                    <div id="history-popover"
-                        class="absolute top-14 right-0 w-[calc(100vw-2rem)] max-w-xs sm:w-88 bg-white/95 backdrop-blur-xl border border-stone-200/80 text-stone-900 rounded-2xl shadow-2xl p-4 sm:p-5 z-50 transition-all duration-200 ease-out origin-top-right transform opacity-0 scale-95 pointer-events-none">
-                        <div class="flex items-center justify-between pb-3 border-b border-stone-100 mb-3">
-                            <h4 class="text-xs font-extrabold text-stone-900 tracking-tight">Recent Transfers</h4>
-                            <button onclick="closeHistoryPopover()"
-                                class="text-stone-400 hover:text-stone-700 p-1 rounded-md transition-colors">
-                                <i data-lucide="x" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-
-                        <div id="history-items-container" class="space-y-2.5 max-h-64 overflow-y-auto pr-1">
-                            <!-- Dynamic history list rendered here -->
-                        </div>
-
-                        <div
-                            class="pt-3 mt-3 border-t border-stone-100 flex justify-between items-center text-[11px] px-0.5">
-                            <button onclick="clearHistory()"
-                                class="text-red-500 hover:text-red-600 font-semibold transition-colors">Clear
-                                History</button>
-                            <span class="text-stone-400">Auto-deletes in 10m</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </header>
     <!-- Main Container: Single centered column max-w-[720px] with consistent 24px vertical gap -->
